@@ -12,6 +12,32 @@
 ```
 [Joysticks & Buttons] -> [Teensy] --Serial--> [Raspberry Pi] --ROS2--> [Robot Systems]
 ```
+# ROS Touchscreen Joystick Controller
+
+## Project Overview
+A custom ROS2 touchscreen controller with dual joysticks, designed for remote operation of robotic systems, specifically developed for projects like a Dalek-inspired robot.
+
+## System Architecture
+
+### Concept Design
+![ROS Controller Concept Design](/docs/concept-design.svg)
+
+The concept design illustrates the physical layout of the controller, showcasing:
+- 7" Raspberry Pi touchscreen
+- Left and right joysticks
+- Control buttons
+- Emergency stop button
+- Teensy microcontroller
+- Raspberry Pi 5 computing unit
+
+### Block Diagram
+![ROS Controller Block Diagram](/docs/block-diagram.svg)
+
+The block diagram details the system's data flow and component interactions:
+- Input components (joysticks, buttons)
+- Teensy for input processing
+- Raspberry Pi running ROS2 node
+- Touchscreen display
 
 ## Setup and Installation
 
