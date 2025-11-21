@@ -1,0 +1,1330 @@
+[
+    {
+        "id": "bd5443053d7c82f9",
+        "type": "tab",
+        "label": "BCI Dalek",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "717690ec134e07b4",
+        "type": "debug",
+        "z": "bd5443053d7c82f9",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "2bd8d6bcd5149d32",
+        "type": "function",
+        "z": "bd5443053d7c82f9",
+        "name": "threshold forward",
+        "func": "let inputValue = msg.payload;\n\nlet inputVal = Math.floor(inputValue);\n\nvar block = context.get(\"block\") || false;\n\nif (msg.topic == \"block\") {\n    block =! msg.payload;\n    context.set(\"block\", block);\n    var stat = {\n        fill: block ? \"red\" : \"green\",\n        shape: block ? \"dot\": \"ring\",\n        text: block ? \"Off\": \"On\"\n    }\n    node.status(stat);\n    return null\n}\n\nif (block) return null\nelse if (inputVal > 50) {\n    msg.payload = 1;\n}\nelse {\n    msg.payload = 0;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 280,
+        "wires": [
+            [
+                "05b8b793394d9710",
+                "890278c3863ff2e2"
+            ]
+        ]
+    },
+    {
+        "id": "821748b21dd0ca61",
+        "type": "inject",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "86",
+        "payloadType": "num",
+        "x": 1150,
+        "y": 360,
+        "wires": [
+            [
+                "2bd8d6bcd5149d32",
+                "8644962e70e10ffe"
+            ]
+        ]
+    },
+    {
+        "id": "05b8b793394d9710",
+        "type": "debug",
+        "z": "bd5443053d7c82f9",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1680,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "890278c3863ff2e2",
+        "type": "mqtt out",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "topic": "/dalek/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4b9d4faf1382fd54",
+        "x": 1680,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8f0dfc7637ea5725",
+        "type": "debug",
+        "z": "bd5443053d7c82f9",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6aa523a5536dc542",
+        "type": "function",
+        "z": "bd5443053d7c82f9",
+        "name": "threshold lights",
+        "func": "let inputValue = msg.payload;\nlet inputVal = Math.floor(inputValue);\nvar block = context.get(\"block\") || false;\n\nif (msg.topic == \"block\") {\n    block =! msg.payload;\n    context.set(\"block\", block);\n    var stat = {\n        fill: block ? \"red\" : \"green\",\n        shape: block ? \"dot\": \"ring\",\n        text: block ? \"Off\": \"On\"\n    }\n    node.status(stat);\n    return null\n}\n\nif (block) return null\nelse if (inputVal > 50) {\n    msg.payload = 4;\n}\nelse {\n    msg.payload = 0;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1400,
+        "y": 500,
+        "wires": [
+            [
+                "b13464d530e92723",
+                "c0cac25f3da2b554"
+            ]
+        ]
+    },
+    {
+        "id": "4bf7b6c558e59528",
+        "type": "inject",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "86",
+        "payloadType": "num",
+        "x": 1230,
+        "y": 580,
+        "wires": [
+            [
+                "6aa523a5536dc542",
+                "c0cac25f3da2b554",
+                "2d02500e92b32c34"
+            ]
+        ]
+    },
+    {
+        "id": "b13464d530e92723",
+        "type": "debug",
+        "z": "bd5443053d7c82f9",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1600,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c0cac25f3da2b554",
+        "type": "mqtt out",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "topic": "/dalek/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4b9d4faf1382fd54",
+        "x": 1680,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e6ba0931a8a86177",
+        "type": "debug",
+        "z": "bd5443053d7c82f9",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "8c5517367560f412",
+        "type": "function",
+        "z": "bd5443053d7c82f9",
+        "name": "threshold left",
+        "func": "let inputValue = msg.payload;\n\nlet inputVal = Math.floor(inputValue);\n\nvar block = context.get(\"block\") || false;\n\nif (msg.topic == \"block\") {\n    block =! msg.payload;\n    context.set(\"block\", block);\n    var stat = {\n        fill: block ? \"red\" : \"green\",\n        shape: block ? \"dot\": \"ring\",\n        text: block ? \"Off\": \"On\"\n    }\n    node.status(stat);\n    return null\n}\n\nif (block) return null\nelse if (inputVal > 50) {\n    msg.payload = 2;\n}\nelse {\n    msg.payload = 0;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1390,
+        "y": 700,
+        "wires": [
+            [
+                "9ca5ed24d726f23a",
+                "6a5c53f583571510"
+            ]
+        ]
+    },
+    {
+        "id": "242376a57bba0daf",
+        "type": "inject",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "86",
+        "payloadType": "num",
+        "x": 1230,
+        "y": 780,
+        "wires": [
+            [
+                "8c5517367560f412",
+                "c7cfcc66310e34d8"
+            ]
+        ]
+    },
+    {
+        "id": "9ca5ed24d726f23a",
+        "type": "debug",
+        "z": "bd5443053d7c82f9",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1600,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "6a5c53f583571510",
+        "type": "mqtt out",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "topic": "/dalek/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4b9d4faf1382fd54",
+        "x": 1680,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "a813011f00e91f3d",
+        "type": "debug",
+        "z": "bd5443053d7c82f9",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "035519a4e2da12a8",
+        "type": "function",
+        "z": "bd5443053d7c82f9",
+        "name": "threshold right",
+        "func": "let inputValue = msg.payload;\n\nlet inputVal = Math.floor(inputValue);\n\nvar block = context.get(\"block\") || false;\n\nif (msg.topic == \"block\") {\n    block =! msg.payload;\n    context.set(\"block\", block);\n    var stat = {\n        fill: block ? \"red\" : \"green\",\n        shape: block ? \"dot\": \"ring\",\n        text: block ? \"Off\": \"On\"\n    }\n    node.status(stat);\n    return null\n}\n\nif (block) return null\nelse if (inputVal > 50) {\n    msg.payload = 3;\n}\nelse {\n    msg.payload = 0;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1400,
+        "y": 900,
+        "wires": [
+            [
+                "8159dc4c26881b96",
+                "7522b95ca3dd184b"
+            ]
+        ]
+    },
+    {
+        "id": "c9bd09dbebde90c4",
+        "type": "inject",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "86",
+        "payloadType": "num",
+        "x": 1230,
+        "y": 980,
+        "wires": [
+            [
+                "035519a4e2da12a8",
+                "436dca9106d781f4"
+            ]
+        ]
+    },
+    {
+        "id": "8159dc4c26881b96",
+        "type": "debug",
+        "z": "bd5443053d7c82f9",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1600,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "7522b95ca3dd184b",
+        "type": "mqtt out",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "topic": "/dalek/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4b9d4faf1382fd54",
+        "x": 1680,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "bd04dd545cadff21",
+        "type": "inject",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 1010,
+        "y": 1080,
+        "wires": [
+            [
+                "83ef2f941ebd4cea"
+            ]
+        ]
+    },
+    {
+        "id": "83ef2f941ebd4cea",
+        "type": "mqtt out",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "topic": "/dalek/command",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4b9d4faf1382fd54",
+        "x": 1240,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "316d7e2c7a99055e",
+        "type": "inject",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "str",
+        "x": 1010,
+        "y": 1160,
+        "wires": [
+            [
+                "83ef2f941ebd4cea"
+            ]
+        ]
+    },
+    {
+        "id": "ca477d107878322b",
+        "type": "inject",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "str",
+        "x": 1010,
+        "y": 1120,
+        "wires": [
+            [
+                "83ef2f941ebd4cea"
+            ]
+        ]
+    },
+    {
+        "id": "3816ac6b02791d61",
+        "type": "inject",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "4",
+        "payloadType": "str",
+        "x": 1010,
+        "y": 1200,
+        "wires": [
+            [
+                "83ef2f941ebd4cea"
+            ]
+        ]
+    },
+    {
+        "id": "65df8bad2669c306",
+        "type": "mqtt out",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "topic": "/diag/right",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4b9d4faf1382fd54",
+        "x": 1220,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "1e1ff69077495e40",
+        "type": "mqtt out",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "topic": "/diag/left",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4b9d4faf1382fd54",
+        "x": 1220,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "bb476260d17e85ac",
+        "type": "mqtt out",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "topic": "/diag/lights",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4b9d4faf1382fd54",
+        "x": 1230,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "7045dbaa581a7eea",
+        "type": "mqtt out",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "topic": "/diag/forward",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4b9d4faf1382fd54",
+        "x": 1230,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5e4dfc5a455a1f8a",
+        "type": "ui_switch",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "label": "Lights",
+        "tooltip": "",
+        "group": "a90fbd3a22b55596",
+        "order": 35,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "block",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1230,
+        "y": 540,
+        "wires": [
+            [
+                "6aa523a5536dc542"
+            ]
+        ]
+    },
+    {
+        "id": "f43aac765a9beef4",
+        "type": "ui_switch",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "label": "Right",
+        "tooltip": "",
+        "group": "a90fbd3a22b55596",
+        "order": 34,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "block",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1230,
+        "y": 940,
+        "wires": [
+            [
+                "035519a4e2da12a8"
+            ]
+        ]
+    },
+    {
+        "id": "b6cab7463b565de5",
+        "type": "ui_switch",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "label": "Left",
+        "tooltip": "",
+        "group": "a90fbd3a22b55596",
+        "order": 33,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "block",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1230,
+        "y": 740,
+        "wires": [
+            [
+                "8c5517367560f412"
+            ]
+        ]
+    },
+    {
+        "id": "7bde127bcedf3254",
+        "type": "ui_switch",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "label": "Forward",
+        "tooltip": "",
+        "group": "a90fbd3a22b55596",
+        "order": 32,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "block",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1240,
+        "y": 320,
+        "wires": [
+            [
+                "2bd8d6bcd5149d32"
+            ]
+        ]
+    },
+    {
+        "id": "42ec993eb1fb0428",
+        "type": "ui_switch",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "label": "BCI Commands",
+        "tooltip": "",
+        "group": "a90fbd3a22b55596",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "block",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1100,
+        "y": 620,
+        "wires": [
+            [
+                "2bd8d6bcd5149d32",
+                "6aa523a5536dc542",
+                "8c5517367560f412",
+                "035519a4e2da12a8"
+            ]
+        ]
+    },
+    {
+        "id": "f74ea7405ff6eea5",
+        "type": "ui_button",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "group": "a90fbd3a22b55596",
+        "order": 22,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "",
+        "tooltip": "",
+        "color": "red",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 890,
+        "y": 620,
+        "wires": [
+            [
+                "42ec993eb1fb0428",
+                "7bde127bcedf3254",
+                "5e4dfc5a455a1f8a",
+                "b6cab7463b565de5",
+                "f43aac765a9beef4"
+            ]
+        ]
+    },
+    {
+        "id": "dd51353e7a91a4a8",
+        "type": "mqtt out",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "topic": "/diag/ping",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4b9d4faf1382fd54",
+        "x": 1229,
+        "y": 81,
+        "wires": []
+    },
+    {
+        "id": "50196d5b1c5870a9",
+        "type": "inject",
+        "z": "bd5443053d7c82f9",
+        "name": "Ping",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Ping",
+        "payloadType": "str",
+        "x": 990,
+        "y": 80,
+        "wires": [
+            [
+                "dd51353e7a91a4a8"
+            ]
+        ]
+    },
+    {
+        "id": "8644962e70e10ffe",
+        "type": "ui_chart",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "group": "a90fbd3a22b55596",
+        "order": 36,
+        "width": 4,
+        "height": 4,
+        "label": "Push",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "110",
+        "removeOlder": 1,
+        "removeOlderPoints": "1000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1650,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7cfcc66310e34d8",
+        "type": "ui_chart",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "group": "a90fbd3a22b55596",
+        "order": 37,
+        "width": 4,
+        "height": 4,
+        "label": "Left",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "110",
+        "removeOlder": 1,
+        "removeOlderPoints": "1000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1650,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "436dca9106d781f4",
+        "type": "ui_chart",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "group": "a90fbd3a22b55596",
+        "order": 38,
+        "width": 4,
+        "height": 4,
+        "label": "Right",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "110",
+        "removeOlder": 1,
+        "removeOlderPoints": "1000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1653,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2d02500e92b32c34",
+        "type": "ui_chart",
+        "z": "bd5443053d7c82f9",
+        "name": "",
+        "group": "a90fbd3a22b55596",
+        "order": 39,
+        "width": 4,
+        "height": 4,
+        "label": "Pull",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "110",
+        "removeOlder": 1,
+        "removeOlderPoints": "1000",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1650,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a37d29958b096b0f",
+        "type": "EMOTIV",
+        "z": "bd5443053d7c82f9",
+        "name": "EMOTIV connect",
+        "x": 300,
+        "y": 240,
+        "wires": [
+            [
+                "eef9488b2f5865e8"
+            ]
+        ]
+    },
+    {
+        "id": "eef9488b2f5865e8",
+        "type": "Profile-Name",
+        "z": "bd5443053d7c82f9",
+        "name": "Profile Selection",
+        "profileName": "Dalek 2",
+        "x": 530,
+        "y": 240,
+        "wires": [
+            [
+                "7584a0266d008e7d",
+                "01773c6f3d110c2a",
+                "aca3fa9120d4c329",
+                "93f4df076fe1fd44"
+            ]
+        ]
+    },
+    {
+        "id": "7584a0266d008e7d",
+        "type": "Mental-Command",
+        "z": "bd5443053d7c82f9",
+        "name": "Mental Commands",
+        "actionName": "push",
+        "mcSen": 10,
+        "x": 910,
+        "y": 240,
+        "wires": [
+            [
+                "2bd8d6bcd5149d32",
+                "717690ec134e07b4",
+                "7045dbaa581a7eea",
+                "8644962e70e10ffe"
+            ]
+        ]
+    },
+    {
+        "id": "01773c6f3d110c2a",
+        "type": "Mental-Command",
+        "z": "bd5443053d7c82f9",
+        "name": "Mental Commands",
+        "actionName": "pull",
+        "mcSen": 10,
+        "x": 910,
+        "y": 460,
+        "wires": [
+            [
+                "6aa523a5536dc542",
+                "8f0dfc7637ea5725",
+                "bb476260d17e85ac",
+                "2d02500e92b32c34"
+            ]
+        ]
+    },
+    {
+        "id": "aca3fa9120d4c329",
+        "type": "Mental-Command",
+        "z": "bd5443053d7c82f9",
+        "name": "Mental Commands",
+        "actionName": "rotateLeft",
+        "mcSen": 10,
+        "x": 930,
+        "y": 660,
+        "wires": [
+            [
+                "8c5517367560f412",
+                "e6ba0931a8a86177",
+                "1e1ff69077495e40",
+                "c7cfcc66310e34d8"
+            ]
+        ]
+    },
+    {
+        "id": "93f4df076fe1fd44",
+        "type": "Mental-Command",
+        "z": "bd5443053d7c82f9",
+        "name": "Mental Commands",
+        "actionName": "rotateRight",
+        "mcSen": 10,
+        "x": 930,
+        "y": 860,
+        "wires": [
+            [
+                "035519a4e2da12a8",
+                "a813011f00e91f3d",
+                "65df8bad2669c306",
+                "436dca9106d781f4"
+            ]
+        ]
+    },
+    {
+        "id": "43062db6857b19d1",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 2,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "09dcd749122f7308",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 4,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "46daaf0f05e22f5e",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 5,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "2d8e3a960a57320f",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 7,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "98ef7bbb8cc88ad7",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "02849285b69dfc37",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "58644b52bcab0cd6",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 11,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "7e6f206891ec1e92",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 12,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "9c33887586aa877c",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 13,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "88f909f178b72dda",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 15,
+        "width": 10,
+        "height": 1
+    },
+    {
+        "id": "298a0fcdcd696df6",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 18,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "285d3576eed6f3fd",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 21,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "22c64c3406d1c7ee",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 23,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "0ab72bcce9382851",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 25,
+        "width": 16,
+        "height": 1
+    },
+    {
+        "id": "3c8da94cf6c1bd80",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 26,
+        "width": 16,
+        "height": 1
+    },
+    {
+        "id": "cd7613218d4fb603",
+        "type": "ui_spacer",
+        "z": "bd5443053d7c82f9",
+        "name": "spacer",
+        "group": "a90fbd3a22b55596",
+        "order": 27,
+        "width": 16,
+        "height": 1
+    },
+    {
+        "id": "4b9d4faf1382fd54",
+        "type": "mqtt-broker",
+        "name": "IoTHotspot",
+        "broker": "192.168.42.92",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a90fbd3a22b55596",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "362dd3cd8c8166ce",
+        "order": 1,
+        "disp": true,
+        "width": 16,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "362dd3cd8c8166ce",
+        "type": "ui_tab",
+        "name": "Dalek Control",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

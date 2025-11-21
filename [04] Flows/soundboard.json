@@ -1,0 +1,2849 @@
+[
+    {
+        "id": "f34d8eec8fe73810",
+        "type": "tab",
+        "label": "Soundboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ef12e9eb2175f3b4",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Beginning",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "c1a5787afb4c35d5"
+            ]
+        ]
+    },
+    {
+        "id": "c1a5787afb4c35d5",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 100,
+        "wires": [
+            [
+                "9636dca1ec4d78e5",
+                "e7654202fc7d10bf"
+            ]
+        ]
+    },
+    {
+        "id": "9636dca1ec4d78e5",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 100,
+        "wires": [
+            [
+                "f23c3401ef7330ff"
+            ]
+        ]
+    },
+    {
+        "id": "f23c3401ef7330ff",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 2,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1cd6667897aa776e",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "e7654202fc7d10bf",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "beginning",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 180,
+        "wires": [
+            [
+                "73b21f16f9f1d0e7"
+            ]
+        ]
+    },
+    {
+        "id": "73b21f16f9f1d0e7",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 180,
+        "wires": [
+            [
+                "1cd6667897aa776e"
+            ]
+        ]
+    },
+    {
+        "id": "04dd546e317c4335",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 5,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Buddy-Off",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 360,
+        "y": 260,
+        "wires": [
+            [
+                "5ecb413e6bb23a4f"
+            ]
+        ]
+    },
+    {
+        "id": "5ecb413e6bb23a4f",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 260,
+        "wires": [
+            [
+                "4eed95e0da3df357",
+                "08580886a10a33fe"
+            ]
+        ]
+    },
+    {
+        "id": "4eed95e0da3df357",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 260,
+        "wires": [
+            [
+                "2e860e12ea4e7bb4"
+            ]
+        ]
+    },
+    {
+        "id": "57142a0e572234a3",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "08580886a10a33fe",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "buddy-off",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 340,
+        "wires": [
+            [
+                "1d892878d3135bbc"
+            ]
+        ]
+    },
+    {
+        "id": "1d892878d3135bbc",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 340,
+        "wires": [
+            [
+                "57142a0e572234a3"
+            ]
+        ]
+    },
+    {
+        "id": "0d37589166fc44b2",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 6,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Buddy-On",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 360,
+        "y": 420,
+        "wires": [
+            [
+                "adaf2b0f210c7e3e"
+            ]
+        ]
+    },
+    {
+        "id": "adaf2b0f210c7e3e",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 420,
+        "wires": [
+            [
+                "b32687ec7dd087ca",
+                "c1cca8798c729c34"
+            ]
+        ]
+    },
+    {
+        "id": "b32687ec7dd087ca",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 420,
+        "wires": [
+            [
+                "e63e70424253fd13"
+            ]
+        ]
+    },
+    {
+        "id": "61fd020d9435e259",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c1cca8798c729c34",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "buddy-on",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 500,
+        "wires": [
+            [
+                "e7ebf3f4e19a5e95"
+            ]
+        ]
+    },
+    {
+        "id": "e7ebf3f4e19a5e95",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 500,
+        "wires": [
+            [
+                "61fd020d9435e259"
+            ]
+        ]
+    },
+    {
+        "id": "dd8528a77a03f0d1",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 10,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Destroy",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 360,
+        "y": 580,
+        "wires": [
+            [
+                "c7b6b20bc818e04f"
+            ]
+        ]
+    },
+    {
+        "id": "c7b6b20bc818e04f",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 580,
+        "wires": [
+            [
+                "78b86a754bc3f2e1",
+                "ac62fd2d638076ac"
+            ]
+        ]
+    },
+    {
+        "id": "78b86a754bc3f2e1",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 580,
+        "wires": [
+            [
+                "74e0fb0cca64d5bd"
+            ]
+        ]
+    },
+    {
+        "id": "78dfa5a9cae87565",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "ac62fd2d638076ac",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "destroy",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 660,
+        "wires": [
+            [
+                "a69b5f1759126a53"
+            ]
+        ]
+    },
+    {
+        "id": "a69b5f1759126a53",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 660,
+        "wires": [
+            [
+                "78dfa5a9cae87565"
+            ]
+        ]
+    },
+    {
+        "id": "2cc53d86e99c0c12",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 11,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Emerge",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 360,
+        "y": 720,
+        "wires": [
+            [
+                "2541832489cc2b50"
+            ]
+        ]
+    },
+    {
+        "id": "2541832489cc2b50",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 720,
+        "wires": [
+            [
+                "2fd72d68a421b383",
+                "9483345f58654aa4"
+            ]
+        ]
+    },
+    {
+        "id": "2fd72d68a421b383",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 720,
+        "wires": [
+            [
+                "dfea63f8f5ecd173"
+            ]
+        ]
+    },
+    {
+        "id": "4adcc38b7c855e6b",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "9483345f58654aa4",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "emerge",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 800,
+        "wires": [
+            [
+                "2df8fb0ebec649d2"
+            ]
+        ]
+    },
+    {
+        "id": "2df8fb0ebec649d2",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 800,
+        "wires": [
+            [
+                "4adcc38b7c855e6b"
+            ]
+        ]
+    },
+    {
+        "id": "413660305f55c5cf",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 15,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Exterminate",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 860,
+        "wires": [
+            [
+                "0cca1a875331a8c4"
+            ]
+        ]
+    },
+    {
+        "id": "0cca1a875331a8c4",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 860,
+        "wires": [
+            [
+                "f557870fd11f36ad",
+                "aa97eb6df992f3b5"
+            ]
+        ]
+    },
+    {
+        "id": "f557870fd11f36ad",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 860,
+        "wires": [
+            [
+                "123f5a1ad3b41bd6"
+            ]
+        ]
+    },
+    {
+        "id": "c5f942ce905f7e67",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "aa97eb6df992f3b5",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "exterminate",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 940,
+        "wires": [
+            [
+                "38dab3d2e1c6899d"
+            ]
+        ]
+    },
+    {
+        "id": "38dab3d2e1c6899d",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 940,
+        "wires": [
+            [
+                "c5f942ce905f7e67"
+            ]
+        ]
+    },
+    {
+        "id": "bc9e975fee707f46",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 16,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Go-Stronger",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 1000,
+        "wires": [
+            [
+                "6138283ffd01040b"
+            ]
+        ]
+    },
+    {
+        "id": "6138283ffd01040b",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 1000,
+        "wires": [
+            [
+                "4d5fe12280e55219",
+                "5fe970f378d07856"
+            ]
+        ]
+    },
+    {
+        "id": "4d5fe12280e55219",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1000,
+        "wires": [
+            [
+                "72456105c2ad9eb4"
+            ]
+        ]
+    },
+    {
+        "id": "107b8f8cd5379499",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "5fe970f378d07856",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "go-stronger",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1080,
+        "wires": [
+            [
+                "95a5842d78d54e74"
+            ]
+        ]
+    },
+    {
+        "id": "95a5842d78d54e74",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 1080,
+        "wires": [
+            [
+                "107b8f8cd5379499"
+            ]
+        ]
+    },
+    {
+        "id": "e48680a915196023",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 20,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Message",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 360,
+        "y": 1140,
+        "wires": [
+            [
+                "0caf0f566633d995"
+            ]
+        ]
+    },
+    {
+        "id": "0caf0f566633d995",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 1140,
+        "wires": [
+            [
+                "90944d9ba88f8e91",
+                "d222df747ac7935b"
+            ]
+        ]
+    },
+    {
+        "id": "90944d9ba88f8e91",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1140,
+        "wires": [
+            [
+                "d01f5f318ab13806"
+            ]
+        ]
+    },
+    {
+        "id": "0b70ece0f89817f2",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "d222df747ac7935b",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "message",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1220,
+        "wires": [
+            [
+                "64220a479037e5b5"
+            ]
+        ]
+    },
+    {
+        "id": "64220a479037e5b5",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 1220,
+        "wires": [
+            [
+                "0b70ece0f89817f2"
+            ]
+        ]
+    },
+    {
+        "id": "a6b74d8bfd9b4898",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 21,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Must-Survive",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 1280,
+        "wires": [
+            [
+                "31b24d7ef756980c"
+            ]
+        ]
+    },
+    {
+        "id": "31b24d7ef756980c",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 1280,
+        "wires": [
+            [
+                "786842149cd9f8c5",
+                "4955d140d290584f"
+            ]
+        ]
+    },
+    {
+        "id": "786842149cd9f8c5",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1280,
+        "wires": [
+            [
+                "d16a551ec584b258"
+            ]
+        ]
+    },
+    {
+        "id": "d6aad1c6114291c7",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "4955d140d290584f",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "must-survive",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1360,
+        "wires": [
+            [
+                "104cf473db22997b"
+            ]
+        ]
+    },
+    {
+        "id": "104cf473db22997b",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 1360,
+        "wires": [
+            [
+                "d6aad1c6114291c7"
+            ]
+        ]
+    },
+    {
+        "id": "5bcaa4bc20bb5db6",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 25,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Prepare",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 360,
+        "y": 1420,
+        "wires": [
+            [
+                "6b1c833b2c7a57d6"
+            ]
+        ]
+    },
+    {
+        "id": "6b1c833b2c7a57d6",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 1420,
+        "wires": [
+            [
+                "f5a706285467bd46",
+                "a261cdb7d6924566"
+            ]
+        ]
+    },
+    {
+        "id": "f5a706285467bd46",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1420,
+        "wires": [
+            [
+                "17a63d6d27a49e35"
+            ]
+        ]
+    },
+    {
+        "id": "2cfcd487ed6752d1",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "a261cdb7d6924566",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "prepare",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1500,
+        "wires": [
+            [
+                "d3ea13f545335a6b"
+            ]
+        ]
+    },
+    {
+        "id": "d3ea13f545335a6b",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 1500,
+        "wires": [
+            [
+                "2cfcd487ed6752d1"
+            ]
+        ]
+    },
+    {
+        "id": "fcdf32b564fdb4a9",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 26,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Rant",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 350,
+        "y": 1560,
+        "wires": [
+            [
+                "589965d1b9e0a181"
+            ]
+        ]
+    },
+    {
+        "id": "589965d1b9e0a181",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 1560,
+        "wires": [
+            [
+                "2a00933dc0138cef",
+                "1dba937d83571a5d"
+            ]
+        ]
+    },
+    {
+        "id": "2a00933dc0138cef",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1560,
+        "wires": [
+            [
+                "3e3e455d8702030b"
+            ]
+        ]
+    },
+    {
+        "id": "36d6e9e2f0cbb99b",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "1dba937d83571a5d",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "rant",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1640,
+        "wires": [
+            [
+                "1875b7c8d71dc5cb"
+            ]
+        ]
+    },
+    {
+        "id": "1875b7c8d71dc5cb",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 1640,
+        "wires": [
+            [
+                "36d6e9e2f0cbb99b"
+            ]
+        ]
+    },
+    {
+        "id": "806d39f2705f9fff",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 30,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Stay",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 350,
+        "y": 1700,
+        "wires": [
+            [
+                "7e72c8c76cc41676"
+            ]
+        ]
+    },
+    {
+        "id": "7e72c8c76cc41676",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 1700,
+        "wires": [
+            [
+                "cab6ab4ece3a61dd",
+                "8ca811ddfbe1bc3e"
+            ]
+        ]
+    },
+    {
+        "id": "cab6ab4ece3a61dd",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1700,
+        "wires": [
+            [
+                "a460ddad8db7926f"
+            ]
+        ]
+    },
+    {
+        "id": "381fd461bd15eb15",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "8ca811ddfbe1bc3e",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "stay",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1780,
+        "wires": [
+            [
+                "51db2eacf6a84021"
+            ]
+        ]
+    },
+    {
+        "id": "51db2eacf6a84021",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 1780,
+        "wires": [
+            [
+                "381fd461bd15eb15"
+            ]
+        ]
+    },
+    {
+        "id": "6d4fe5fc70b4f04c",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 31,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Survive-in-me",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 360,
+        "y": 1840,
+        "wires": [
+            [
+                "baecf0debf365a37"
+            ]
+        ]
+    },
+    {
+        "id": "baecf0debf365a37",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 1840,
+        "wires": [
+            [
+                "433f174589e4435d",
+                "ca958f5268a7bdf3"
+            ]
+        ]
+    },
+    {
+        "id": "433f174589e4435d",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1840,
+        "wires": [
+            [
+                "e70cc0b7b6c436fc"
+            ]
+        ]
+    },
+    {
+        "id": "ab18e78c1a17476f",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "ca958f5268a7bdf3",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "survive-in-me",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1920,
+        "wires": [
+            [
+                "503c78e41f5ca839"
+            ]
+        ]
+    },
+    {
+        "id": "503c78e41f5ca839",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 1920,
+        "wires": [
+            [
+                "ab18e78c1a17476f"
+            ]
+        ]
+    },
+    {
+        "id": "8a366971838865f7",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 35,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Time-is-right",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 1980,
+        "wires": [
+            [
+                "8055c66b090df61a"
+            ]
+        ]
+    },
+    {
+        "id": "8055c66b090df61a",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 1980,
+        "wires": [
+            [
+                "168b73d2cca39603",
+                "8b4cb86ee0288629"
+            ]
+        ]
+    },
+    {
+        "id": "168b73d2cca39603",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 1980,
+        "wires": [
+            [
+                "32900e795121039d"
+            ]
+        ]
+    },
+    {
+        "id": "5112ec3e685c2217",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "8b4cb86ee0288629",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "time-is-right",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 2060,
+        "wires": [
+            [
+                "c44d8b2ee048c70d"
+            ]
+        ]
+    },
+    {
+        "id": "c44d8b2ee048c70d",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 2060,
+        "wires": [
+            [
+                "5112ec3e685c2217"
+            ]
+        ]
+    },
+    {
+        "id": "2e860e12ea4e7bb4",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 4,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e63e70424253fd13",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 7,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "74e0fb0cca64d5bd",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 9,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "dfea63f8f5ecd173",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 12,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "123f5a1ad3b41bd6",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 14,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "72456105c2ad9eb4",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 17,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "d01f5f318ab13806",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 19,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "d16a551ec584b258",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 22,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "17a63d6d27a49e35",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 24,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "3e3e455d8702030b",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 27,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "32900e795121039d",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 34,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "e70cc0b7b6c436fc",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 32,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "a460ddad8db7926f",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 29,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "2a1895e59f2e2304",
+        "type": "inject",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 630,
+        "y": 40,
+        "wires": [
+            [
+                "f23c3401ef7330ff",
+                "2e860e12ea4e7bb4",
+                "e63e70424253fd13",
+                "74e0fb0cca64d5bd",
+                "dfea63f8f5ecd173",
+                "32900e795121039d",
+                "e70cc0b7b6c436fc",
+                "123f5a1ad3b41bd6",
+                "72456105c2ad9eb4",
+                "d01f5f318ab13806",
+                "d16a551ec584b258",
+                "17a63d6d27a49e35",
+                "3e3e455d8702030b",
+                "a460ddad8db7926f",
+                "62450cd667e147c2"
+            ]
+        ]
+    },
+    {
+        "id": "2903cd5fdfae57ed",
+        "type": "ui_button",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "group": "449618b99bb4598f",
+        "order": 36,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "label": "Would you like Tea",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "rgb(255,255,255)",
+        "className": "",
+        "icon": "",
+        "payload": "9",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 350,
+        "y": 2120,
+        "wires": [
+            [
+                "2227008baf913ce8"
+            ]
+        ]
+    },
+    {
+        "id": "2227008baf913ce8",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 2120,
+        "wires": [
+            [
+                "1f4bbe8b26bc5bc0",
+                "d389bb6e708900e2"
+            ]
+        ]
+    },
+    {
+        "id": "1f4bbe8b26bc5bc0",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 2120,
+        "wires": [
+            [
+                "62450cd667e147c2"
+            ]
+        ]
+    },
+    {
+        "id": "c06bbcf07a70488b",
+        "type": "mqtt out",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "topic": "/audio/play",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3d62961e0ee77aa3",
+        "x": 1110,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "d389bb6e708900e2",
+        "type": "trigger",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "op1": "tea",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 2200,
+        "wires": [
+            [
+                "0eb99852604e807a"
+            ]
+        ]
+    },
+    {
+        "id": "0eb99852604e807a",
+        "type": "delay",
+        "z": "f34d8eec8fe73810",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "2",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 2200,
+        "wires": [
+            [
+                "c06bbcf07a70488b"
+            ]
+        ]
+    },
+    {
+        "id": "62450cd667e147c2",
+        "type": "ui_led",
+        "z": "f34d8eec8fe73810",
+        "order": 37,
+        "group": "449618b99bb4598f",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "SOUND",
+        "x": 860,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "883b487c03f6e305",
+        "type": "ui_spacer",
+        "z": "f34d8eec8fe73810",
+        "name": "spacer",
+        "group": "449618b99bb4598f",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "c9debc4ff28b3f33",
+        "type": "ui_spacer",
+        "z": "f34d8eec8fe73810",
+        "name": "spacer",
+        "group": "449618b99bb4598f",
+        "order": 8,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "c223e0ef5e5601f5",
+        "type": "ui_spacer",
+        "z": "f34d8eec8fe73810",
+        "name": "spacer",
+        "group": "449618b99bb4598f",
+        "order": 13,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "098401c28ad5a072",
+        "type": "ui_spacer",
+        "z": "f34d8eec8fe73810",
+        "name": "spacer",
+        "group": "449618b99bb4598f",
+        "order": 18,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "46029c5e97d84369",
+        "type": "ui_spacer",
+        "z": "f34d8eec8fe73810",
+        "name": "spacer",
+        "group": "449618b99bb4598f",
+        "order": 23,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "58889acee10e81f5",
+        "type": "ui_spacer",
+        "z": "f34d8eec8fe73810",
+        "name": "spacer",
+        "group": "449618b99bb4598f",
+        "order": 28,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "13fc2da9d254181e",
+        "type": "ui_spacer",
+        "z": "f34d8eec8fe73810",
+        "name": "spacer",
+        "group": "449618b99bb4598f",
+        "order": 33,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "c40e77cd29acfab9",
+        "type": "ui_spacer",
+        "z": "f34d8eec8fe73810",
+        "name": "spacer",
+        "group": "449618b99bb4598f",
+        "order": 38,
+        "width": 9,
+        "height": 1
+    },
+    {
+        "id": "449618b99bb4598f",
+        "type": "ui_group",
+        "name": "Soundboard",
+        "tab": "66d83eadcdb28f28",
+        "order": 1,
+        "disp": true,
+        "width": 16,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3d62961e0ee77aa3",
+        "type": "mqtt-broker",
+        "name": "OSRC(localhost)",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "66d83eadcdb28f28",
+        "type": "ui_tab",
+        "name": "Soundboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
